@@ -27,7 +27,6 @@ export default function MangaDetail() {
 
   return (
     <div className="max-w-3xl mx-auto bg-white p-6 rounded shadow relative space-y-4">
-      {/* รูปปก */}
       {manga.images?.jpg?.image_url && (
         <div className="relative">
           <img
@@ -35,7 +34,6 @@ export default function MangaDetail() {
             alt={manga.title}
             className="w-full max-w-sm mx-auto rounded"
           />
-          {/* ปุ่ม Favorite มุมขวาบน */}
           <button
             className={`absolute top-2 right-2 btn btn-sm shadow-md transition-all duration-300 ${
               isFavorite
@@ -50,10 +48,8 @@ export default function MangaDetail() {
         </div>
       )}
 
-      {/* ชื่อเรื่อง */}
       <h2 className="text-2xl font-bold">{manga.title}</h2>
 
-      {/* ข้อมูลมังงะ */}
       <p>
         <strong>English Title:</strong> {manga.title_english || "ไม่มีข้อมูล"}
       </p>
@@ -73,7 +69,6 @@ export default function MangaDetail() {
         <strong>ผู้แต่ง (Author):</strong> {authors}
       </p>
 
-      {/* เรื่องย่อ */}
       <p className="whitespace-pre-line">{manga.synopsis}</p>
     </div>
   );

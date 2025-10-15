@@ -12,13 +12,10 @@ const favoritesSlice = createSlice({
     toggleFavorite: (state, action: PayloadAction<number>) => {
       const id = action.payload;
       if (state.ids.includes(id)) {
-        // ลบออกถ้ามีอยู่แล้ว
         state.ids = state.ids.filter((x) => x !== id);
       } else {
-        // เพิ่มถ้ายังไม่มี
         state.ids.push(id);
       }
-      // ✅ บันทึกลง localStorage
       localStorage.setItem("favorites", JSON.stringify(state.ids));
     },
     clearFavorites: (state) => {

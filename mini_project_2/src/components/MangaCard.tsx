@@ -30,7 +30,7 @@ export default function MangaCard({ manga }: Props) {
           </Link>
           <button
             className={`btn btn-outline btn-sm ${isFavorited ? "btn-secondary" : ""}`}
-            onClick={() => dispatch(toggleFavorite(manga.mal_id))} // ✅ ใช้ mal_id
+            onClick={() => dispatch(toggleFavorite(manga.mal_id))}
           >
             {isFavorited ? "★ Favorited" : "☆ Favorite"}
           </button>

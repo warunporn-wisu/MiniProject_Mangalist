@@ -25,7 +25,6 @@ export default function Favorites() {
             axios.get<{ data: Manga }>(`https://api.jikan.moe/v4/manga/${id}`)
           )
         );
-        // ✅ ต้องใช้ res.data.data ไม่ใช่ res.data
         const mangas = responses.map((res) => res.data.data);
         setFavItems(mangas);
         setStatus("idle");

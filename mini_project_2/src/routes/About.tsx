@@ -1,8 +1,5 @@
-// Component สำหรับหน้า About (หน้าเกี่ยวกับ)
-// เป็น Component แบบง่ายๆ ที่ไม่มี state หรือ logic ซับซ้อน
 export default function About() {
   return (
-    // ใช้ class "prose" จาก Tailwind Typography plugin เพื่อจัดสไตล์เนื้อหาให้อ่านง่ายโดยอัตโนมัติ
     <div className="container mx-auto p-4 prose lg:prose-xl">
       <h1>เกี่ยวกับโปรเจกต์</h1>
       <p>

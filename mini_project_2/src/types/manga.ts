@@ -6,7 +6,6 @@ export type MangaResponse = {
   data: Manga[];
 };
 
-// Main type for manga data
 export type Manga = {
   mal_id: number;
   title: string;

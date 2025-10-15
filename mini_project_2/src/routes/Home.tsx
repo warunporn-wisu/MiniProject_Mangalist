@@ -13,12 +13,10 @@ export default function Home() {
   );
   const favoriteIds = useSelector((state: RootState) => state.favorites.ids);
 
-  // โหลดมังงะจาก API เมื่อ offset หรือ limit เปลี่ยน
   useEffect(() => {
     dispatch(fetchManga({ offset, limit }));
   }, [dispatch, offset, limit]);
 
-  // ฟิลเตอร์ตามคำค้นหา
   const filtered = useMemo(() => {
     if (!query) return items;
     const q = query.toLowerCase();
@@ -36,7 +34,6 @@ export default function Home() {
 
   return (
     <div className="container mx-auto p-4 space-y-4">
-      {/* 🔍 Search bar + Refresh */}
       <div className="flex items-center gap-2 mb-4">
         <input
           type="text"
@@ -50,7 +47,6 @@ export default function Home() {
         </button>
       </div>
 
-      {/* ⏳ Loading / Error */}
       {status === "loading" && (
         <div className="text-center">
           <span className="loading loading-lg loading-spinner"></span>
@@ -60,7 +56,6 @@ export default function Home() {
         <div className="alert alert-error mb-4">{error}</div>
       )}
 
-      {/* 🧱 Grid มังงะ */}
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
         {filtered.map((m: Manga) => {
           const isFavorite = favoriteIds.includes(m.mal_id);
@@ -69,7 +64,6 @@ export default function Home() {
               key={m.mal_id}
               className="card bg-base-100 shadow hover:shadow-lg transition relative overflow-hidden"
             >
-              {/* รูปปก */}
               <figure className="aspect-[2/3] overflow-hidden">
                 <img
                   src={m.images?.jpg?.image_url || "https://placehold.co/400x600?text=No+Cover"}
@@ -78,14 +72,12 @@ export default function Home() {
                 />
               </figure>
 
-              {/* เนื้อหาในการ์ด */}
               <div className="card-body p-4">
                 <h3 className="card-title text-base line-clamp-2 h-12">{m.title}</h3>
                 {m.score && (
                   <p className="text-sm opacity-70">⭐ {m.score}</p>
                 )}
 
-                {/* ปุ่ม Details */}
                 <div className="card-actions justify-start mt-3">
                   <Link
                     to={`/manga/${m.mal_id}`}
@@ -112,9 +104,8 @@ export default function Home() {
         })}
       </div>
 
-      {/* 📄 Pagination */}
       <div className="flex justify-center gap-2 mt-4">
-        {Array.from({ length: 5 }, (_, i) => (
+        {Array.from({ length: 10 }, (_, i) => (
           <button
             key={i}
             className={`btn btn-sm ${offset / limit === i ? "btn-primary" : ""}`}
