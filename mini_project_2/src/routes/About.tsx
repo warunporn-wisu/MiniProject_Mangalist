@@ -28,6 +28,14 @@ export default function About() {
         <li>
           <b>Data Fetching:</b> Axios (สำหรับดึงข้อมูลจาก API ภายนอก)
         </li>
+        <br>
+        </br>
+        <li>
+          <b>จัดทำโดย 
+            <br></br>น.ส.วรุณพร วิสุทธิสมาจาร 1660701572 
+            <br></br>นาย พูลทวี นิลยาน 1660702075
+          </b>
+        </li>
       </ul>
     </div>
   );
